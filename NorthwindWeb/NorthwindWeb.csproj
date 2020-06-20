@@ -4,4 +4,9 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="../NorthwindContextLib/NorthwindContextLib.csproj" />
+    <ProjectReference Include="../NorthwindEmployees/NorthwindEmployees.csproj" />
+  </ItemGroup>
+
 </Project>

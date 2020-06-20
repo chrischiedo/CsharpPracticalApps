@@ -1,3 +1,6 @@
+using System.IO;
+using Microsoft.EntityFrameworkCore;
+using Nise.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +21,12 @@ namespace NorthwindWeb
         // Visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            string databasePath = Path.Combine("..", "Northwind.db");
+
+            services.AddDbContext<Northwind> (options =>
+                options.UseSqlite($"Data Source={databasePath}"));
+
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime.
@@ -46,6 +55,7 @@ namespace NorthwindWeb
                 // {
                 //     await context.Response.WriteAsync("Hello World!");
                 // });
+                endpoints.MapRazorPages();
             });
         }
     }
