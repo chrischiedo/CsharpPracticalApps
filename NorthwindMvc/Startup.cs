@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Net.Http.Headers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -42,6 +43,16 @@ namespace NorthwindMvc
             string databasePath = Path.Combine("..", "Northwind.db");
             services.AddDbContext<Northwind>(options =>
                 options.UseSqlite($"Data Source={databasePath}"));
+
+            services.AddHttpClient(name: "NorthwindService",
+                configureClient: options => 
+                {
+                    options.BaseAddress = new Uri("https://localhost:5001/");
+
+                    options.DefaultRequestHeaders.Accept.Add(
+                        new MediaTypeWithQualityHeaderValue(
+                            "application/json", 1.0));
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
