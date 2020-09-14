@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "NorthwindAngularClient"
+    }
+  },
+  "defaultProject": "NorthwindAngularClient",
+  "cli": {
+    "analytics": false
+  }
 }
