@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'pm-root',
   template: `
     <nav class='navbar navbar-expand navbar-light bg-light'>
       <a class='navbar-brand'>{{pageTitle}}</a>
@@ -24,5 +24,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  pageTitle = 'NorthwindAngularClient';
+  pageTitle = 'Acme Product Management';
 }
