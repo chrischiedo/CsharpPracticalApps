@@ -39,6 +39,8 @@ namespace NorthwindMvc
             services.AddControllersWithViews();
             services.AddRazorPages();
 
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
             // connecting to the Northwind DB.
             string databasePath = Path.Combine("..", "Northwind.db");
             services.AddDbContext<Northwind>(options =>
@@ -61,7 +63,8 @@ namespace NorthwindMvc
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                // app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {
